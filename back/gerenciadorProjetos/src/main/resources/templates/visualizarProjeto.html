@@ -34,17 +34,19 @@
 					<div class="form-control">
 						<div class="row">
 							<input type="hidden" name="codigo" th:value="${projeto.codigo}"/>
+							<input type="hidden" name="titulo" th:value="${projeto.titulo}"/>
+							<input type="hidden" name="descricao" th:value="${projeto.descricao}"/>
 							<div class="col-sm-6 row">
 								<div class="col-sm-6">
 									<b>Previs&atilde;o Finaliza&ccedil;&atilde;o:</b>
 								</div>
 								<div class="col-sm-4">
 									<input class="form-control" th:value="${projeto.dataPrevisaoFinalizacao}" type="date" 
-										name="entidade.dataPrevisaoFinalizacao"></input>
+										name="dataPrevisaoFinalizacao"></input>
 								</div>
 								<div class="col-sm-2">
 									<input class="form-control" th:value="${projeto.horaPrevisaoFinalizacao}" type="time" 
-										name="entidade.horaPrevisaoFinalizacao"></input>
+										name="horaPrevisaoFinalizacao"></input>
 								</div>
 							</div>
 							<div class="col-sm-6 row">
@@ -53,11 +55,11 @@
 								</div>
 								<div class="col-sm-4">
 									<input class="form-control" th:value="${projeto.dataFinalizacao}" type="date" 
-										name="entidade.dataFinalizacao"></input>
+										name="dataFinalizacao"></input>
 								</div>
 								<div class="col-sm-2">
 									<input class="form-control" th:value="${projeto.horaFinalizacao}" type="time" 
-										name="entidade.horaFinalizacao"></input>
+										name="horaFinalizacao"></input>
 								</div>
 							</div>
 						</div>
