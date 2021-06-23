@@ -1,16 +1,17 @@
 package tech.criasystem.gerenciadorProjetos;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EntityScan(basePackages = {
-        "tech.criasystem.gerenciadorProjetos.model"
-        })
-@EnableJpaRepositories(basePackages = {
-        "tech.criasystem.gerenciadorProjetos.repository"
-        })
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override

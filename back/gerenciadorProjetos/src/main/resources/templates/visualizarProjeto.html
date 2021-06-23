@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Visualizar Projeto</title>
+	 	<!--Import Google Icon Font-->
+      	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      	<!--Let browser know website is optimized for mobile-->
+      	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+	
+	<header>
+		<nav class="menu">
+		    <div class="nav-wrapper">
+		      <h3 class="brand-logo"><span th:text="${projeto.titulo}"></span></h3>
+		    </div>
+		</nav>
+		<div class="container">
+			<div class="col-sm-12">
+				<div class="form-control">
+					<div class="col-sm-4">
+						<b>Descri&ccedil;&atilde;o:</b>
+					</div>
+					<div class="col-sm-6">
+						<span th:text="${projeto.descricao}"></span>
+					</div>
+				</div>
+			</div>
+			<form method="post" action="/salvarProjeto">
+				<div class="col-sm-12">
+					<div class="form-control">
+						<div class="row">
+							<input type="hidden" name="codigo" th:value="${projeto.codigo}"/>
+							<div class="col-sm-6 row">
+								<div class="col-sm-6">
+									<b>Previs&atilde;o Finaliza&ccedil;&atilde;o:</b>
+								</div>
+								<div class="col-sm-4">
+									<input class="form-control" th:value="${projeto.dataPrevisaoFinalizacao}" type="date" 
+										name="entidade.dataPrevisaoFinalizacao"></input>
+								</div>
+								<div class="col-sm-2">
+									<input class="form-control" th:value="${projeto.horaPrevisaoFinalizacao}" type="time" 
+										name="entidade.horaPrevisaoFinalizacao"></input>
+								</div>
+							</div>
+							<div class="col-sm-6 row">
+								<div class="col-sm-6">
+									<b>Finaliza&ccedil;&atilde;o:</b>
+								</div>
+								<div class="col-sm-4">
+									<input class="form-control" th:value="${projeto.dataFinalizacao}" type="date" 
+										name="entidade.dataFinalizacao"></input>
+								</div>
+								<div class="col-sm-2">
+									<input class="form-control" th:value="${projeto.horaFinalizacao}" type="time" 
+										name="entidade.horaFinalizacao"></input>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			<div class="page-footer">
+					<button class="btn btn-primary btn-md" type="submit">Salvar</button>
+					<a class="btn btn-default btn-md" href="javascript:history.back()">Voltar</a>
+				</div>
+			</form>
+		</div>
+	</header>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</body>
+
+
+</html>

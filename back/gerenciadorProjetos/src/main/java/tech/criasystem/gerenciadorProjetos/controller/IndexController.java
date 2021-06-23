@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/teste", method = RequestMethod.GET)
 	@ResponseBody
-	public String index() {
+	public String teste() {
 		return "Deu Certo";
+	}
+	
+	@RequestMapping("/index")
+	public String index() {
+		return "index";
 	}
 }

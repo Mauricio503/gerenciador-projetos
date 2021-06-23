@@ -2,16 +2,10 @@ package tech.criasystem.gerenciadorProjetos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {
-        "tech.criasystem.gerenciadorProjetos.model"
-        })
-@EnableJpaRepositories(basePackages = {
-        "tech.criasystem.gerenciadorProjetos.repository"
-        })
+@ComponentScan("tech.criasystem.gerenciadorProjetos")
 public class Application {
 
 	public static void main(String[] args) {
