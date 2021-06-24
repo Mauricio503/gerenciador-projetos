@@ -3,11 +3,13 @@ package tech.criasystem.gerenciadorProjetos.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Projeto implements Serializable {
@@ -22,28 +24,19 @@ public class Projeto implements Serializable {
 	
 	private String descricao;
 	
-	private LocalDate dataPrevisaoFinalizacao;
-	
-	private LocalDate dataFinalizacao;
-	
-	private LocalDateTime horaPrevisaoFinalizacao;
-	
-	private LocalDateTime horaFinalizacao;
+	@ManyToMany
+	private List<HorarioProjeto> horariosProjeto;
 	
 	public Projeto() {
 		super();
 	}
 
-	public Projeto(Long codigo, String titulo, String descricao, LocalDate dataPrevisaoFinalizacao,
-			LocalDate dataFinalizacao, LocalDateTime horaPrevisaoFinalizacao, LocalDateTime horaFinalizacao) {
+	public Projeto(Long codigo, String titulo, String descricao, List<HorarioProjeto> horariosProjeto) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.dataPrevisaoFinalizacao = dataPrevisaoFinalizacao;
-		this.dataFinalizacao = dataFinalizacao;
-		this.horaPrevisaoFinalizacao = horaPrevisaoFinalizacao;
-		this.horaFinalizacao = horaFinalizacao;
+		this.horariosProjeto = horariosProjeto;
 	}
 
 	public Long getCodigo() {
@@ -75,38 +68,12 @@ public class Projeto implements Serializable {
 		this.descricao = descricao;
 	}
 
-
-	public LocalDate getDataPrevisaoFinalizacao() {
-		return dataPrevisaoFinalizacao;
+	public List<HorarioProjeto> getHorariosProjeto() {
+		return horariosProjeto;
 	}
 
-
-	public void setDataPrevisaoFinalizacao(LocalDate dataPrevisaoFinalizacao) {
-		this.dataPrevisaoFinalizacao = dataPrevisaoFinalizacao;
-	}
-
-	public LocalDate getDataFinalizacao() {
-		return dataFinalizacao;
-	}
-
-	public void setDataFinalizacao(LocalDate dataFinalizacao) {
-		this.dataFinalizacao = dataFinalizacao;
-	}
-
-	public LocalDateTime getHoraPrevisaoFinalizacao() {
-		return horaPrevisaoFinalizacao;
-	}
-
-	public void setHoraPrevisaoFinalizacao(LocalDateTime horaPrevisaoFinalizacao) {
-		this.horaPrevisaoFinalizacao = horaPrevisaoFinalizacao;
-	}
-
-	public LocalDateTime getHoraFinalizacao() {
-		return horaFinalizacao;
-	}
-
-	public void setHoraFinalizacao(LocalDateTime horaFinalizacao) {
-		this.horaFinalizacao = horaFinalizacao;
+	public void setHorariosProjeto(List<HorarioProjeto> horariosProjeto) {
+		this.horariosProjeto = horariosProjeto;
 	}
 	
 }

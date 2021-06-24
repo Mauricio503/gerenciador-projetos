@@ -1,5 +1,7 @@
 package tech.criasystem.gerenciadorProjetos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,10 @@ public class ProjetoService {
 	
 	public void salvar(Projeto projeto) {
 		projetoRepository.save(projeto);
+	}
+	
+	public Iterable<Projeto> findAll() {
+		return projetoRepository.findAll();
 	}
 	
 }

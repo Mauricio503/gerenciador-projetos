@@ -23,7 +23,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST,
+	@RequestMapping(value = "/api/login", method = RequestMethod.POST,
 			headers = "Accept=application/json")
 	@ResponseBody
 	public ResponseEntity<String> login(@RequestBody Usuario usuario) {

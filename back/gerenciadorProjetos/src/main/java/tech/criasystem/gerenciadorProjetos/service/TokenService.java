@@ -14,14 +14,10 @@ public class TokenService {
 
 	private String key = "secret";
 
-    //30 minutos
-    private static final long expirationTime = 1800000;
-
     public String generateToken(Usuario user) {
         return Jwts.builder()
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setSubject("Teste JWT API")
-                .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(SignatureAlgorithm.HS256, key)
                 .compact();
     }
