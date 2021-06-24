@@ -8,8 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
 
 @Entity
 public class Usuario implements Serializable {
@@ -24,20 +23,28 @@ public class Usuario implements Serializable {
 	
 	private String nome;
 	
+	private String senha;
+	
 	@ManyToMany
 	private List<Projeto> projetos;
+	
+	@Transient
+	private String token;
 	
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(Long codigo, String username, String nome, List<Projeto> projetos) {
+	public Usuario(Long codigo, String username, String nome, String senha, List<Projeto> projetos, String token) {
 		super();
 		this.codigo = codigo;
 		this.username = username;
 		this.nome = nome;
+		this.senha = senha;
 		this.projetos = projetos;
+		this.token = token;
 	}
+
 
 	public Long getCodigo() {
 		return codigo;
@@ -69,6 +76,22 @@ public class Usuario implements Serializable {
 
 	public void setProjetos(List<Projeto> projetos) {
 		this.projetos = projetos;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 }
